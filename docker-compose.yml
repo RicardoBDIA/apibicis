@@ -1,0 +1,14 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+
+  collector:
+    image: citybikes_collector
+    container_name: citybikes_collector
+    depends_on:
+      - mongodb
+
